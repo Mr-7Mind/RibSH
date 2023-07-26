@@ -1,2 +1,2 @@
 ## rib.sh Menu!!!
-![logo](https://github.com/Mr-7Mind/MiniShell/assets/88535491/bb9ff6e0-00d9-429d-bd8a-a6814f33b7fd)
+![logo](https://github.com/Mr-7Mind/RibSH/assets/88535491/b0666427-6d1b-490a-b024-fb6039ec0cf2)
