@@ -181,6 +181,20 @@ function jumlah_line() {
   echo -e "\e[1;32mJumlah baris dalam file $input_file adalah: $total_lines \e[0m"
 }
 
+function remove_parentheses() {
+  read -p $'\e[1;34mMasukkan Nama File: \e[0m' input_file
+  if [ ! -f "$input_file" ]; then
+    echo -e "\e[1;31mFile $input_file tidak ditemukan.\e[0m"
+    return
+  fi
+
+  output_file="${input_file}_no_parentheses.txt"
+
+  sed 's/([^)]*)//g' "$input_file" > "$output_file"
+
+  echo -e "\e[1;32mPenghapusan tanda kurung beserta objeknya selesai... \e[0m"
+}
+
 while true; do
   show_menu
   read -p $'\e[1;32mPilih menu: \e[0m' menu_choice
@@ -208,6 +222,9 @@ while true; do
 	  jumlah_line
 	  ;;
     8)
+    remove_parentheses
+      ;;
+      9)
       echo -e "\e[1;33mTerima kasih, Follow github.com/Mr-7Mind \e[0m"
       exit 0
       ;;
