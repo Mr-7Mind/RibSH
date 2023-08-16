@@ -27,7 +27,8 @@ function show_menu() {
   echo -e "\033[1;32m6. Ekstrak Domain Dari File\033[0m"
   echo -e "\033[1;32m7. Menghitung Jumlah Line\033[0m"
   echo -e "\033[1;32m8. Menghapus Kurung dan isinya\033[0m"
-  echo -e "\033[1;32m9. Keluar\033[0m"
+  echo -e "\033[1;32m9. menghapus Domain Dengan Awalan Angka\033[0m"
+  echo -e "\033[1;32m10. Keluar\033[0m"
 }
 
 function potong_file() {
@@ -196,6 +197,20 @@ function remove_parentheses() {
   echo -e "\e[1;32mPenghapusan tanda kurung beserta objeknya selesai... \e[0m"
 }
 
+function remove_lines_with_numbers() {
+  read -p $'\e[1;34mMasukkan Nama File: \e[0m' input_file
+  if [ ! -f "$input_file" ]; then
+    echo -e "\e[1;31mFile $input_file tidak ditemukan.\e[0m"
+    return
+  fi
+
+  output_file="${input_file}_no_numbers.txt"
+
+  grep -v '^[[:digit:]]' "$input_file" > "$output_file"
+
+  echo -e "\e[1;32mPenghapusan baris dengan awalan angka selesai... \e[0m"
+}
+
 while true; do
   show_menu
   read -p $'\e[1;32mPilih menu: \e[0m' menu_choice
@@ -219,13 +234,16 @@ while true; do
     6)
       ekstrak_domain
       ;;
-	7)
-	  jumlah_line
-	  ;;
-    8)
-    remove_parentheses
+    7)
+      jumlah_line
       ;;
-      9)
+    8)
+      remove_parentheses
+      ;;
+    9)
+      remove_lines_with_numbers
+      ;;
+    10)
       echo -e "\e[1;33mTerima kasih, Follow github.com/Mr-7Mind \e[0m"
       exit 0
       ;;
