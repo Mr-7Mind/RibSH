@@ -26,7 +26,8 @@ function show_menu() {
   echo -e "\033[1;32m5. Menggabungkan File List\033[0m"
   echo -e "\033[1;32m6. Ekstrak Domain Dari File\033[0m"
   echo -e "\033[1;32m7. Menghitung Jumlah Line\033[0m"
-  echo -e "\033[1;32m8. Keluar\033[0m"
+  echo -e "\033[1;32m8. Menghapus Kurung dan isinya\033[0m"
+  echo -e "\033[1;32m9. Keluar\033[0m"
 }
 
 function potong_file() {
